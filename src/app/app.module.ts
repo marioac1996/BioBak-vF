@@ -14,10 +14,12 @@ import {environment} from '../environments/environment';
 import {AuthenticationService} from './services/authentication.service';
 import {AngularFirestoreModule,FirestoreSettingsToken} from '@angular/fire/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
-import {AngularFireAuthModule} from '@angular/fire/auth'
-import * as firebase from 'firebase'
-firebase.initializeApp(environment.firebase);
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import * as firebase from 'firebase';
 
+import {Geolocation} from '@ionic-native/geolocation/ngx';
+
+firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -33,6 +35,7 @@ firebase.initializeApp(environment.firebase);
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'denuncias',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../denuncias/denuncias.module').then(m => m.DenunciasPageModule)
+          }
+        ]
+      },
+      {
         path: 'ubicanos',
         children: [
           {

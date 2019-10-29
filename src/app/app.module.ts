@@ -17,9 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import * as firebase from 'firebase';
 
-import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 firebase.initializeApp(environment.firebase);
+
+import {Geolocation} from '@ionic-native/geolocation/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-firebaseConfig : {
+firebase : {
   apiKey: "AIzaSyDK2-RB7cUsDuqTZBRpVJDvUS-ANrGpB7A",
   authDomain: "ecobakv2.firebaseapp.com",
   databaseURL: "https://ecobakv2.firebaseio.com",

@@ -38,6 +38,26 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'denuncias',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../denuncias/denuncias.module').then(m => m.DenunciasPageModule)
+          }
+        ]
+      },
+      {
+        path: 'contacto',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../contacto/contacto.module').then(m => m.ContactoPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

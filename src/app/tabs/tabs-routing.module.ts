@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'ubicanos',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../ubicanos/ubicanos.module').then(m => m.UbicanosPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

@@ -9,7 +9,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'ubicanos', loadChildren: './ubicanos/ubicanos.module#UbicanosPageModule' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminPageModule' },
-  { path: 'denuncias', loadChildren: './denuncias/denuncias.module#DenunciasPageModule' }
+  { path: 'denuncias', loadChildren: './denuncias/denuncias.module#DenunciasPageModule' },
+  { path: 'listflora', loadChildren: './listflora/listflora.module#ListfloraPageModule' },
+  { path: 'new-task', loadChildren: './new-task/new-task.module#NewTaskPageModule' },
+  { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' }
 
 ];
 @NgModule({

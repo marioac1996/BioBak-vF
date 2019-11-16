@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="admin"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button [routerLink]="['/new-task']">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    <ion-title>Lista Flora</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="items" class="list-mini-content" padding>
+    <div *ngIf="items.length > 0" class="list-mini">
+      <ion-list>
+        <ion-item *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
+          <ion-thumbnail slot="start">
+            <img [src]="item.payload.doc.data().image">
+          </ion-thumbnail>
+          <ion-label>{{item.payload.doc.data().title}}</ion-label>
+          <ion-button fill="clear" slot="end">Editar</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="items.length == 0" class="empty-list">
+      Agregue una nueva especie
+    </div>
+  </ion-content>
+  
+  

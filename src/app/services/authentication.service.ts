@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FloraService } from './flora.service';
+import 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,8 @@ export class AuthenticationService {
   authState = new BehaviorSubject(false);
 
   constructor(
-    public afAuth: AngularFireAuth
+	public afAuth: AngularFireAuth,
+	private floraService: FloraService,
     ) { }
   	loginUser(value){
   		return new Promise((resolve,reject)=>
@@ -24,17 +28,16 @@ export class AuthenticationService {
   			)
   		}
   	logoutUser(){
-  		return new Promise((resolve,reject)=>{
-  			if(firebase.auth().currentUser){
-  				firebase.auth().signOut()
-  				.then(()=>{
-  					console.log("Log Out");
-  					resolve();
-  				}).catch((error)=>{
-  					reject();
-  				})
-  			}
-  		})
+		return new Promise((resolve, reject) => {
+			this.afAuth.auth.signOut()
+			.then(() => {
+			  this.floraService.unsubscribeOnLogOut();
+			  resolve();
+			}).catch((error) => {
+			  console.log(error);
+			  reject();
+			});
+		  })
   	}
   	userDetails(){
   		return firebase.auth().currentUser;
